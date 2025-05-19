@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Justin Thejasukmana",
+  "classifications": [ "WebApi", "CleanArchitecture" ],
+  "identity": "JustinThejasukmana.__ProjectName__.Template",
+  "name": "__ProjectName__ Clean Architecture Solution",
+  "shortName": "cleanapi",
+  "sourceName": "__ProjectName__",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "preferNameDirectory": true
+}

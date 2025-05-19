@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <TargetFramework>net8.0</TargetFramework>
+	  <PackageId>JustinThejasukmana.CleanApiTemplate</PackageId>
+	  <Version>1.0.10</Version>
+	  <Authors>Justin Thejasukmana</Authors>
+	  <PackageType>Template</PackageType>
+	  <Description>Multi-project template for __ProjectName__ solution</Description>
+	  <IncludeBuildOutput>false</IncludeBuildOutput>
+	  <!-- <IsPackable>false</IsPackable> -->
+  </PropertyGroup>
+
+	<ItemGroup>
+		<!-- Include everything inside the template folder -->
+		<None Include="..\**\*.*"
+			  Exclude="..\**\bin\**;
+					   ..\**\obj\**;
+					   ..\.vs\**;
+					   ..\**\.vs\**;
+					   ..\**\*.user;
+					   ..\**\*.lock.json;
+					   .\**;
+					   *.csproj;
+					   ..\__ProjectName__.Pack\**"
+			  Pack="true" PackagePath="content" />
+		
+	</ItemGroup>
+
+		</Project>
