@@ -3,7 +3,7 @@
   <PropertyGroup>
 	  <TargetFramework>net8.0</TargetFramework>
 	  <PackageId>JustinThejasukmana.CleanApiTemplate</PackageId>
-	  <Version>1.0.10</Version>
+	  <Version>1.0.12</Version>
 	  <Authors>Justin Thejasukmana</Authors>
 	  <PackageType>Template</PackageType>
 	  <Description>Multi-project template for __ProjectName__ solution</Description>
