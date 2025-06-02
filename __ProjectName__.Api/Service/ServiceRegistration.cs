@@ -1,4 +1,5 @@
-﻿using Microsoft.OpenApi.Models;
+﻿using __ProjectName__.DataAccess.Services;
+using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 
 namespace __ProjectName__.Api.Service {
@@ -59,6 +60,7 @@ namespace __ProjectName__.Api.Service {
             #region Scopes
 
             //services.AddScoped<IBaseService, BaseService>();
+            services.AddScoped<IUserService, UserService>();
 
             #endregion
 

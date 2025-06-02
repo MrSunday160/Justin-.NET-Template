@@ -1,14 +1,15 @@
-﻿using __ProjectName__.Domain.Common;
+﻿using __ProjectName__.Domain.Models;
+using Justin.EntityFramework.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace __ProjectName__.DataAccess.Models {
-    public class __ProjectName__DbContext : DbContext {
+    public class __ProjectName__DbContext : BaseDbContext<__ProjectName__DbContext> {
 
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public __ProjectName__DbContext(DbContextOptions<__ProjectName__DbContext> options, IHttpContextAccessor httpContextAccessor) : base(options) {
+        public __ProjectName__DbContext(DbContextOptions<__ProjectName__DbContext> options, IHttpContextAccessor httpContextAccessor) : base(options, httpContextAccessor) {
 
             _httpContextAccessor = httpContextAccessor;
             AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
@@ -38,7 +39,7 @@ namespace __ProjectName__.DataAccess.Models {
             }
         }
 
-        public virtual void SetDefaultValues() {
+        public override void SetDefaultValues() {
 
             var entities = ChangeTracker.Entries().Where(x => x.Entity is Base && (x.State == EntityState.Added || x.State == EntityState.Modified || x.State == EntityState.Deleted));
 
@@ -56,32 +57,11 @@ namespace __ProjectName__.DataAccess.Models {
             SwitchState(entities, currUsername);
 
         }
-
-        public virtual void SwitchState(IEnumerable<EntityEntry> entities, string currUsername) {
-
-            foreach(var entity in entities) {
-                switch(entity.State) {
-                    case EntityState.Added:
-                        ((Base)entity.Entity).CreatedDate = DateTime.Now;
-                        ((Base)entity.Entity).IsDeleted = false;
-                        ((Base)entity.Entity).CreatedBy = currUsername;
-                        break;
-                    case EntityState.Modified:
-                        ((Base)entity.Entity).IsDeleted = false;
-                        ((Base)entity.Entity).UpdatedDate = DateTime.Now;
-                        ((Base)entity.Entity).UpdatedBy = currUsername;
-                        break;
-                    case EntityState.Deleted:
-                        entity.State = EntityState.Modified;
-                        ((Base)entity.Entity).IsDeleted = true;
-                        break;
-                }
-            }
-
-        }
         #endregion
 
         #region DbSet
+
+        public virtual DbSet<User> Users { get; set; }
 
         #endregion
 
