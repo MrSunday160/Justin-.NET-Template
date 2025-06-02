@@ -3,10 +3,10 @@
   <PropertyGroup>
 	  <TargetFramework>net8.0</TargetFramework>
 	  <PackageId>JustinThejasukmana.CleanApiTemplate</PackageId>
-	  <Version>1.0.12</Version>
+	  <Version>1.0.7</Version>
 	  <Authors>Justin Thejasukmana</Authors>
 	  <PackageType>Template</PackageType>
-	  <Description>Multi-project template for __ProjectName__ solution</Description>
+	  <Description>Multi-project template using Justin.EntityFramework Library</Description>
 	  <IncludeBuildOutput>false</IncludeBuildOutput>
 	  <!-- <IsPackable>false</IsPackable> -->
   </PropertyGroup>
@@ -16,15 +16,16 @@
 		<None Include="..\**\*.*"
 			  Exclude="..\**\bin\**;
 					   ..\**\obj\**;
+					   ..\**\.git;
 					   ..\.vs\**;
 					   ..\**\.vs\**;
+					   ..\**\.git\**;
+					   ..\**\.github\**;
 					   ..\**\*.user;
 					   ..\**\*.lock.json;
-					   .\**;
-					   *.csproj;
-					   ..\__ProjectName__.Pack\**"
+					   ..\__ProjectName__.Pack\**;"
 			  Pack="true" PackagePath="content" />
 		
 	</ItemGroup>
 
-		</Project>
+</Project>
